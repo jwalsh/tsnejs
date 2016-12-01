@@ -301,7 +301,7 @@ export class tSNE {
     const N = this.N;
 
     const cg = this.costGrad(this.Y); // evaluate gradient
-    const cost = cg.cost;
+    // const cost = cg.cost;
     const grad = cg.grad;
 
     const e = 1e-5;
@@ -315,9 +315,9 @@ export class tSNE {
         this.Y[i][d] = yold - e;
         const cg1 = this.costGrad(this.Y);
 
-        const analytic = grad[i][d];
-        const numerical = (cg0.cost - cg1.cost) / ( 2 * e );
-        console.log(i + ',' + d + ': gradcheck analytic: ' + analytic + ' vs. numerical: ' + numerical);
+        // const analytic = grad[i][d];
+        // const numerical = (cg0.cost - cg1.cost) / ( 2 * e );
+        // console.log(i + ',' + d + ': gradcheck analytic: ' + analytic + ' vs. numerical: ' + numerical);
 
         this.Y[i][d] = yold;
       }
@@ -371,5 +371,4 @@ export class tSNE {
     return {cost: cost, grad: grad};
   }
 
-
-};
+}
