@@ -1,0 +1,45 @@
+{
+  "name": "@jwalsh/tsnejs",
+  "version": "0.1.0",
+  "description": "t-SNE visualization algorithm",
+  "main": "src/index.js",
+  "keywords": [
+    "stochastic",
+    "histogram",
+    "Markov",
+    "probability",
+    "Brownian",
+    "Normal",
+    "Poisson"
+  ],
+  "scripts": {
+    "docs": "./node_modules/.bin/documentation readme -s API src/index.js",
+    "examples": "for A in examples/*.js ; do ./node_modules/.bin/babel-node $A; done",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "lint": "./node_modules/.bin/eslint src",
+    "prepublish": "./node_modules/.bin/babel src --out-dir lib && npm run docs && ./node_modules/.bin/webpack",
+    "release": "npm run lint && npm run flow && npm run prepublish && npm version patch && git push && git push origin --tags && npm publish --access public",
+    "start": "./node_modules/.bin/babel-node src/index.js",
+    "test": "./node_modules/.bin/babel-node tests/index.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jwalsh/tsnejs.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "babel-preset-es2015": "^6.16.0",
+    "documentation": "^4.0.0-beta10",
+    "eslint": "^3.5.0",
+    "flow-bin": "^0.32.0",
+    "js.spec": "^1.0.0-0",
+    "lodash": "^4.17.2",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "babel-plugin-syntax-flow": "^6.13.0",
+    "lebab": "^2.5.1"
+  }
+}
