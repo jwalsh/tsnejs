@@ -2,7 +2,7 @@
   "name": "@jwalsh/tsnejs",
   "version": "0.1.3",
   "description": "t-SNE visualization algorithm",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "keywords": [
     "stochastic",
     "histogram",
@@ -13,12 +13,12 @@
     "Poisson"
   ],
   "scripts": {
-    "docs": "./node_modules/.bin/documentation readme -s API src/index.js",
+    "docs": "./node_modules/.bin/documentation readme -s API lib/index.js",
     "examples": "for A in examples/*.js ; do ./node_modules/.bin/babel-node $A; done",
     "lint": "./node_modules/.bin/eslint src",
     "prepublish": "./node_modules/.bin/babel src --out-dir lib && npm run docs && ./node_modules/.bin/webpack",
     "release": "npm run lint && npm run prepublish && npm version patch && git push && git push origin --tags && npm publish --access public",
-    "start": "./node_modules/.bin/babel-node src/index.js",
+    "start": "./node_modules/.bin/babel-node lib/index.js",
     "test": "./node_modules/.bin/babel-node tests/index.js"
   },
   "license": "MIT",
